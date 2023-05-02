@@ -2,7 +2,7 @@ import random
 import string
 
 # Save the user inputs to a file
-def save_to_file(file_name, first_name, seat_row, seat_column, 
+def savefile(file_name, first_name, seat_row, seat_column, 
 reservation_code):
     with open(file_name, 'a') as f:
         
@@ -29,7 +29,7 @@ the seat number is seat number {Seat}, here is your reservation code =
 
 
      # Save the input and reservation code to a file
-    save_to_file("reservations.txt", FirstName, Seatrow, Seat, 
+    savefile("reservations.txt", FirstName, Seatrow, Seat, 
 reservation_code)
 
 
