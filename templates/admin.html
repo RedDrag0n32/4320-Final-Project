@@ -1,0 +1,33 @@
+{% block content %}
+<style>
+    .alert {
+        padding: 20px;
+        margin: 5px;
+        color: #970020;
+        background-color: #ffd5de;
+    }
+</style>
+
+<h1>{% block title %} Administration {% endblock %}</h1>
+<div>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+
+    {% block message %} {% endblock %}
+</div>
+
+<form method="POST">
+    <label for="userName">User name:</label>
+    <input id="userName" name="userName" value="Enter Text...">
+    <br>
+
+    <label for="password">Password:</label>
+    <input id="password" name="password" value = "Enter Text...">
+    <br>
+    
+    <button type ="submit">Submit</button>
+
+</form>
+
+{% endblock %}
