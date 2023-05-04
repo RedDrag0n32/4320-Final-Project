@@ -8,7 +8,7 @@ app.config['SECRET_KEY'] = 'your secret key'
 
 
 
-@app.route("/", methods = ['GET', 'POST'])
+@app.route("/admin", methods = ['GET', 'POST'])
 def admin():
 
     if(request.method == "POST"):
