@@ -20,8 +20,7 @@ k=length ))
     # Create a reservation code 
     e_ticket_number = f"{FirstName[0].upper()}{LastName[-1].upper()}{random_str}"
 
-    print(f"Congratulations {FirstName}, your seat row is {Seatrow}, and the seat 
-number is seat number {Seat}, here is your reservation code = {e_ticket_number}")
+    print(f"Congratulations {FirstName}, your seat row is {Seatrow}, and the seat number is seat number {Seat}, here is your reservation code = {e_ticket_number}")
 
 
      # Save the input and reservation code to a file
