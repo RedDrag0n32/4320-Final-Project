@@ -9,6 +9,8 @@
 </style>
 
 <h1>{% block title %} Administration {% endblock %}</h1>
+<a href="{{ url_for('index') }}">Main Menu</a>
+<hr>
 <div>
     {% for message in get_flashed_messages() %}
         <div class="alert">{{ message }}</div>
