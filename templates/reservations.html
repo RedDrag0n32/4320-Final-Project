@@ -12,6 +12,8 @@
     {% endwith %}
 
     <h1>{% block title%} Reservations {% endblock %}</h1>
+    <a href="{{ url_for('index') }}">Main Menu</a>
+    <hr>
 
     <form method="post">
         <label for="Fname">First name</label>
