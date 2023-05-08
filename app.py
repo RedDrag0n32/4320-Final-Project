@@ -6,7 +6,31 @@ app.config["DEBUG"] = True
 
 app.config['SECRET_KEY'] = 'your secret key'
 
+@app.route('/')
+def index():
+    
+    return render_template('index.html',)
 
+@app.route("/reservations", methods = ['GET', 'POST'])
+def reservations():
+    if(request.method == "POST"):
+        FirstName = request.form['Fname']
+        LastName = request.form['Lname']
+        Seatrow = request.form['Seatr']
+        Seat = request.form['Seatc']
+
+        if(FirstName == "Enter Text..."):
+            flash("A first name must be entered!")
+        elif(LastName == "Enter Text..."):
+            flash("A first name must be entered!")
+        elif(Seatrow == "Enter number from 1 to 12"):
+            flash("A seat row must be entered!")
+        elif(Seat == "Enter number from 1 to 4"):
+            flash("A seat column must be entered!")
+        else:
+            return render_template("reservations.html")
+    
+    return render_template("reservations.html")
 
 @app.route("/admin", methods = ['GET', 'POST'])
 def admin():
