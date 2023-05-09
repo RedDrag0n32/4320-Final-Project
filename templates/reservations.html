@@ -1,4 +1,19 @@
+
 {% block content %}
+<style>
+    table {
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
 
 <body>
     {% with messages = get_flashed_messages() %}
@@ -14,7 +29,28 @@
     <h1>{% block title%} Reservations {% endblock %}</h1>
     <a href="{{ url_for('index') }}">Main Menu</a>
     <hr>
-
+    <table>
+        <thead>
+            <tr>
+                <th>Row</th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for seats in seat_array %}
+                <tr>
+                    <td>{{ loop.index}}</td>
+                    {% for seat in seats %}
+                        <td>{{ seat }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- <h2 style="text-align:center;">Total Sales: ${{ total_sales }}</h2> -->
     <form method="post">
         <label for="Fname">First name</label>
         <input type="text" id="Fname" name="Fname" value="Enter Text...">
@@ -47,15 +83,18 @@
         <!-- <input type="number" id="Seatc" name="Seatc" value="Enter number from 1 to 4"> -->
         <select id="Seatc" name="Seatc">
             <option value="">Select a seat number</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
+            <option value="4">D</option>
         </select>
         <br>
 
         <br>
         <button type="submit">Submit</button>
     </form>
+    {% if message %}
+    <p>{{message}}</p>
+    {% endif %}
 </body>
 {% endblock %}

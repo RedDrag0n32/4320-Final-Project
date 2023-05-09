@@ -6,6 +6,19 @@
         color: #970020;
         background-color: #ffd5de;
     }
+
+    table {
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
 </style>
 
 <h1>{% block title %} Administration {% endblock %}</h1>
@@ -31,5 +44,29 @@
     <button type ="submit">Submit</button>
 
 </form>
+{% if seat_array %}
+<table>
+    <thead>
+        <tr>
+            <th>Row</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for seats in seat_array %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                {% for seat in seats %}
+                    <td>{{ seat }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2 style="text-align:center;">Total Sales: ${{ total_sales }}</h2>
+{% endif %}
 
 {% endblock %}
